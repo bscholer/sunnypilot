@@ -24,6 +24,7 @@ class LatTunes(Enum):
   PID_L = 13
   PID_M = 14
   PID_N = 15
+  INDI_COROLLA_TSS2 = 16
 
 
 ###### LONG ######
@@ -71,6 +72,16 @@ def set_lat_tune(tune, name):
     tune.lqr.k = [-110.73572306, 451.22718255]
     tune.lqr.l = [0.3233671, 0.3185757]
     tune.lqr.dcGain = 0.002237852961363602
+
+  elif name == LatTunes.INDI_COROLLA_TSS2:
+    ret.lateralTuning.indi.innerLoopGainBP = [18, 22, 26]
+    ret.lateralTuning.indi.innerLoopGainV = [9, 12, 15]
+    ret.lateralTuning.indi.outerLoopGainBP = [18, 22, 26]
+    ret.lateralTuning.indi.outerLoopGainV = [8, 11, 14.99]
+    ret.lateralTuning.indi.timeConstantBP = [18, 22, 26]
+    ret.lateralTuning.indi.timeConstantV = [1, 3, 4.5]
+    ret.lateralTuning.indi.actuatorEffectivenessBP = [18, 22, 26]
+    ret.lateralTuning.indi.actuatorEffectivenessV = [9, 12, 15]
 
   elif 'PID' in str(name):
     tune.init('pid')
