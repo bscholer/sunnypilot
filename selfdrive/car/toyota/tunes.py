@@ -34,7 +34,7 @@ def set_long_tune(tune, name):
     tune.deadzoneBP = [0., 8.05]
     tune.deadzoneV = [.0, .14]
     tune.kpBP = [0., 5., 20.]
-    tune.kpV = [1.3, 1.0, 0.7]
+    tune.kpV = [1.15, 0.85, 0.55]
     tune.kiBP = [0., 5., 12., 20., 27.]
     tune.kiV = [.35, .23, .20, .17, .1]
   # Default longitudinal tune
@@ -74,14 +74,15 @@ def set_lat_tune(tune, name):
     tune.lqr.dcGain = 0.002237852961363602
 
   elif name == LatTunes.INDI_COROLLA_TSS2:
-    ret.lateralTuning.indi.innerLoopGainBP = [18, 22, 26]
-    ret.lateralTuning.indi.innerLoopGainV = [9, 12, 15]
-    ret.lateralTuning.indi.outerLoopGainBP = [18, 22, 26]
-    ret.lateralTuning.indi.outerLoopGainV = [8, 11, 14.99]
-    ret.lateralTuning.indi.timeConstantBP = [18, 22, 26]
-    ret.lateralTuning.indi.timeConstantV = [1, 3, 4.5]
-    ret.lateralTuning.indi.actuatorEffectivenessBP = [18, 22, 26]
-    ret.lateralTuning.indi.actuatorEffectivenessV = [9, 12, 15]
+    tune.init('indi')
+    tune.indi.innerLoopGainBP = [18, 22, 26]
+    tune.indi.innerLoopGainV = [9, 12, 15]
+    tune.indi.outerLoopGainBP = [18, 22, 26]
+    tune.indi.outerLoopGainV = [8, 11, 14.99]
+    tune.indi.timeConstantBP = [18, 22, 26]
+    tune.indi.timeConstantV = [1, 3, 4.5]
+    tune.indi.actuatorEffectivenessBP = [18, 22, 26]
+    tune.indi.actuatorEffectivenessV = [7.5, 10, 13]
 
   elif 'PID' in str(name):
     tune.init('pid')
